@@ -45,4 +45,6 @@ def createNewAccount(data: UserInfo):
         "uuid": new_uuid
     }
 
+    sqlTest(data)
+
     return data
