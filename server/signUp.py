@@ -9,7 +9,7 @@ class UserInfo(BaseModel):
     fname: str
     lname: str
     email: str
-    psswrd: int
+    psswrd: str
 
 app = FastAPI()
 
@@ -28,7 +28,7 @@ def sqlTest(data):
 
     cursor.execute('''CREATE TABLE IF NOT EXISTS accounts
                     (first_name, last_name, password, email, uuid)''')
-    cursor.execute("INSERT INTO messages VALUES ('"+data.first_name+"','"+data.last_name+"','"+data.password+"','"+data.email+"','"+data.uuid+"',)")
+    cursor.execute("INSERT INTO accounts VALUES ('"+str(data["first_name"])+"','"+str(data["last_name"])+"','"+str(data["password"])+"','"+str(data["email"])+"','"+str(data["uuid"])+"')")
 
     conn.commit()
     
